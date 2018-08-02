@@ -1,18 +1,18 @@
 from flask import Flask, render_template, flash, request, url_for, redirect, jsonify
 app = Flask(__name__)
 
-@app.route('/symptoms', methods=['POST'])
-def symptoms():
-    data_symptoms = request.get_json()
-    if data_symptoms != None:
+@app.route('/newdata', methods=['POST'])
+def newData():
+    newData = request.get_json()
+    if newData != None:
         return ('Data Received'), 200
     else:
         return ('Data Not Received')
 
-@app.route('/newcase', methods=['POST'])
-def newcase():
-    data_case = request.get_json()
-    if len(data_case) >= 1:
+@app.route('/addData', methods=['POST'])
+def addData():
+    addData = request.get_json()
+    if len(addData) >= 1:
         return ('Data Received'), 200
     else:
         return ('Data Not Received')
